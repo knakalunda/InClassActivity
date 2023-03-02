@@ -2,9 +2,12 @@ package edu.temple.inclassactivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.SpinnerAdapter
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +25,17 @@ class MainActivity : AppCompatActivity() {
         typedArray.recycle()
 
         // Display images specified in imageArray in Spinner and RecyclerView
+        spinner?.adapter = CustomSpinnerAdapter(this, imageArray)
+        spinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+
+        }
+        recyclerView?.adapter = CustomRecyclerAdapter(imageArray)
+        recyclerView?.layoutManager = LinearLayoutManager(this)
 
     }
 }

@@ -1,5 +1,6 @@
 package edu.temple.inclassactivity
 
+import android.content.res.TypedArray
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
